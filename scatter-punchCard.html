@@ -51,10 +51,11 @@ data = data.map(function (item) {
 
 option = {
     title: {
-        text: 'Punch Card of Github'
+        text: '电锭功耗检测记录',
+        left: 'middle'
     },
     legend: {
-        data: ['Punch Card'],
+        data: ['功率/w'],
         left: 'right'
     },
     tooltip: {
@@ -88,7 +89,7 @@ option = {
         }
     },
     series: [{
-        name: 'Punch Card',
+        name: '功率/w',
         type: 'scatter',
         symbolSize: function (val) {
             return val[2] * 2;
@@ -107,4 +108,3 @@ if (option && typeof option === 'object') {
         </script>
     </body>
 </html>
-    
