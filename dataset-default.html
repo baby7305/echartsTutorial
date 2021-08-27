@@ -1,0 +1,91 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=dataset-default
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+        <!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/world.js"></script>
+        -->
+        <!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+        -->
+
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+
+
+var option = {
+    legend: {},
+    tooltip: {},
+    dataset: {
+        source: [
+            ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
+            ['Milk Tea', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
+            ['Matcha Latte', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
+            ['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
+            ['Walnut Brownie', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
+        ]
+    },
+    series: [{
+        type: 'pie',
+        radius: '20%',
+        center: ['25%', '30%']
+        // No encode specified, by default, it is '2012'.
+    }, {
+        type: 'pie',
+        radius: '20%',
+        center: ['75%', '30%'],
+        encode: {
+            itemName: 'product',
+            value: '2013'
+        }
+    }, {
+        type: 'pie',
+        radius: '20%',
+        center: ['25%', '75%'],
+        encode: {
+            itemName: 'product',
+            value: '2014'
+        }
+    }, {
+        type: 'pie',
+        radius: '20%',
+        center: ['75%', '75%'],
+        encode: {
+            itemName: 'product',
+            value: '2015'
+        }
+    }]
+};
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
+    </body>
+</html>
+    
