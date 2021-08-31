@@ -1,0 +1,126 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=gauge-multi-title
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+        <!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/world.js"></script>
+        -->
+        <!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+        -->
+
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+
+
+option = {
+    series: [{
+        type: 'gauge',
+        anchor: {
+            show: true,
+            showAbove: true,
+            size: 18,
+            itemStyle: {
+                color: '#FAC858'
+            }
+        },
+        pointer: {
+            icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',
+            width: 8,
+            length: '80%',
+            offsetCenter: [0, '8%']
+        },
+
+        progress: {
+            show: true,
+            overlap: true,
+            roundCap: true
+        },
+        axisLine: {
+            roundCap: true
+        },
+        data: [{
+            value: 20,
+            name: '完成率',
+            title: {
+                offsetCenter: ['-40%', '80%']
+            },
+            detail: {
+                offsetCenter: ['-40%', '95%']
+            }
+        },
+        {
+            value: 40,
+            name: '达标率',
+            title: {
+                offsetCenter: ['0%', '80%']
+            },
+            detail: {
+                offsetCenter: ['0%', '95%']
+            }
+        },
+        {
+            value: 60,
+            name: '优秀率',
+            title: {
+                offsetCenter: ['40%', '80%']
+            },
+            detail: {
+                offsetCenter: ['40%', '95%']
+            }
+        }
+        ],
+        title: {
+            fontSize: 14
+        },
+        detail: {
+            width: 40,
+            height: 14,
+            fontSize: 14,
+            color: '#fff',
+            backgroundColor: 'auto',
+            borderRadius: 3,
+            formatter: '{value}%'
+        }
+    }]
+};
+
+setInterval(function () {
+    option.series[0].data[0].value = (Math.random() * 100).toFixed(2) - 0;
+    option.series[0].data[1].value = (Math.random() * 100).toFixed(2) - 0;
+    option.series[0].data[2].value = (Math.random() * 100).toFixed(2) - 0;
+    myChart.setOption(option, true);
+}, 2000);
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
+    </body>
+</html>
+    
