@@ -53,8 +53,13 @@ option = {
             radius: ['40%', '70%'],
             avoidLabelOverlap: false,
             label: {
-                show: false,
-                position: 'center'
+                formatter: '{name|{b}}\n{time|{c} m}',
+                rich: {
+                    time: {
+                        fontSize: 10,
+                        color: '#999'
+                    }
+                }
             },
             emphasis: {
                 label: {
@@ -64,7 +69,9 @@ option = {
                 }
             },
             labelLine: {
-                show: false
+                length: 15,
+                length2: 200,
+                maxSurfaceAngle: 80
             },
             data: [
                 {value: 1048, name: '当前长度'},
